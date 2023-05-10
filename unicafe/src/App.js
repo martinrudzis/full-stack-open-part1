@@ -23,6 +23,9 @@ const Statistics = (props) => (
     <div>good {props.good}</div>
     <div>neutral {props.neutral}</div>
     <div>bad {props.bad}</div>
+    <div>all {props.all}</div>
+    <div>average {props.average}</div>
+    <div>positive {props.positive}%</div>
   </div>
 )
 
@@ -34,6 +37,7 @@ const App = () => {
   console.log(good)
   console.log(neutral)
   console.log(bad)
+  const total = good + neutral + bad
   return (
     <div>
       <Feedback 
@@ -45,7 +49,15 @@ const App = () => {
         text2="neutral"
         text3="bad"
       />
-      <Statistics heading="statistics" good={good} neutral={neutral} bad={bad} />
+      <Statistics 
+        heading="statistics" 
+        good={good} 
+        neutral={neutral} 
+        bad={bad} 
+        all={total}
+        average={(good - bad) / total}
+        positive={(good / total) * 100}
+      />
     </div>
   )
 }
