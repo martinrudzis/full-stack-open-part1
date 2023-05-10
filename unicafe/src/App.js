@@ -17,17 +17,24 @@ const Feedback = (props) => (
   </h1>
 )
 
-const Statistics = (props) => (
-  <div>
-    <h1>{props.heading}</h1>
-    <div>good {props.good}</div>
-    <div>neutral {props.neutral}</div>
-    <div>bad {props.bad}</div>
-    <div>all {props.all}</div>
-    <div>average {props.average}</div>
-    <div>positive {props.positive}%</div>
-  </div>
-)
+const Statistics = (props) => {
+  if (props.all === 0) {
+    return (
+      <div>No feeback provided</div>
+    )
+  }
+  return (
+    <div>
+      <h1>{props.heading}</h1>
+      <div>good {props.good}</div>
+      <div>neutral {props.neutral}</div>
+      <div>bad {props.bad}</div>
+      <div>all {props.all}</div>
+      <div>average {props.average}</div>
+      <div>positive {props.positive}%</div>
+    </div>
+  )
+}
 
 const App = () => {
   // save clicks of each button to its own state
