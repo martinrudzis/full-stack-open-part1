@@ -20,7 +20,7 @@ const Feedback = (props) => (
 const Statistics = (props) => {
   if (props.all === 0) {
     return (
-      <div>No feeback provided</div>
+      <div>No feeback given</div>
     )
   }
   return (
